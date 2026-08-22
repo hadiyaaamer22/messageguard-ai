@@ -2,6 +2,8 @@
 
 An AI-powered tool to help you spot suspicious messages before it's too late.
 
+🔗 **Live Demo**: https://messageguard-ai.vercel.app/
+
 ## What's This About?
 
 We all get those weird messages - emails saying your account needs "urgent verification", texts about a package delivery you never ordered, or WhatsApp messages from "relatives" asking for money. This app helps you figure out if they're legit or scams.
