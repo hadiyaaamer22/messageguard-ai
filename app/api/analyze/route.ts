@@ -20,8 +20,11 @@ const RequestSchema = z.object({
 
 export async function POST(request: NextRequest): Promise<NextResponse<AnalysisResponse>> {
   try {
-    // Validate API key exists
-    if (!process.env.ANTHROPIC_API_KEY) {
+    // In demo mode, skip API key check
+    const isDemoMode = process.env.DEMO_MODE === 'true';
+    
+    // Validate API key exists (unless in demo mode)
+    if (!isDemoMode && !process.env.ANTHROPIC_API_KEY) {
       console.error('Missing ANTHROPIC_API_KEY');
       return NextResponse.json(
         {
