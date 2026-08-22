@@ -23,9 +23,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<AnalysisR
     // In demo mode, skip API key check
     const isDemoMode = process.env.DEMO_MODE === 'true';
     
+    console.log('DEMO_MODE env var:', process.env.DEMO_MODE);
+    console.log('isDemoMode:', isDemoMode);
+    console.log('ANTHROPIC_API_KEY exists:', !!process.env.ANTHROPIC_API_KEY);
+    
     // Validate API key exists (unless in demo mode)
     if (!isDemoMode && !process.env.ANTHROPIC_API_KEY) {
-      console.error('Missing ANTHROPIC_API_KEY');
+      console.error('Missing ANTHROPIC_API_KEY and not in demo mode');
       return NextResponse.json(
         {
           success: false,
